@@ -17,18 +17,27 @@ type Register struct {
 	Posts  []Post
 }
 
-type Ads struct {
-	Title       string
-	Type        string
-	Description string
-	Price       float64
-}
+
 
 type Response struct {
 	Message string `json:"message"`
 }
 
 type Post struct {
+
+	gorm.Model
+
+	PID       string  
+	Title     string    
+	Content   string    
+	//Owner   []Register      
+	OwnerID  string    
+	Image string 
+
+	
+}
+
+type PublishPost struct {
 
 	gorm.Model
 

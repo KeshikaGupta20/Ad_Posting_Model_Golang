@@ -22,5 +22,7 @@ func RegisterRoutes(app fiber.Router) {
 
 	app.Delete("/deletepost", a.DeletePost)
 
+	app.Post("/publishpost", a.PublishPost)
+
 	
 }

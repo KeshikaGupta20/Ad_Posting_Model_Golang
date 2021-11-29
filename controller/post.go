@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+
 	"github.com/KeshikaGupta20/Ad_Posting_Model_Golang/database"
 	"github.com/KeshikaGupta20/Ad_Posting_Model_Golang/models"
 
@@ -38,7 +39,6 @@ func CreatePost(c *fiber.Ctx) error {
 
 }
 
-
 func GetPost(c *fiber.Ctx) error {
 
 	db := database.DB
@@ -69,6 +69,34 @@ func DeletePost(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 
 		"Message": "Post deleted sucessfully",
+	})
+
+}
+
+func PublishPost(c *fiber.Ctx) error {
+	db := database.DB
+
+	ID := c.Params("PID")
+
+	var post []models.Post
+	var pp []models.PublishPost
+
+	db.First(&post, ID)
+
+	result := db.Create(&pp)
+
+	if result != nil {
+		fmt.Println("Post sucessfully uploaded")
+
+		return c.JSON(fiber.Map{
+			"message": true,
+			"data":    pp,
+		})
+
+	}
+
+	return c.JSON(fiber.Map{
+		"message": true,
 	})
 
 }
