@@ -3,8 +3,7 @@ package main
 import (
 	
 	"log"
-	"net/http"
-	"text/template"
+	
 	
 
 	"github.com/KeshikaGupta20/Ad_Posting_Model_Golang/database"

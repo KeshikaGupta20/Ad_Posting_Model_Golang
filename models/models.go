@@ -14,7 +14,7 @@ type Register struct {
 	Phone    int64
 	Address  string
 	Password string `gorm:"size:100;not null;"`
-	//Ads      []Ad
+	Posts  []Post
 }
 
 type Ads struct {
@@ -32,7 +32,7 @@ type Post struct {
 
 	gorm.Model
 
-	ID        string    
+	PID       string  
 	Title     string    
 	Content   string    
 	//Owner   []Register      

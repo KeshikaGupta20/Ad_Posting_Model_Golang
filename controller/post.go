@@ -54,3 +54,21 @@ func GetPost(c *fiber.Ctx) error {
 	})
 }
 
+func DeletePost(c *fiber.Ctx) error {
+
+	ID := c.Params("PID")
+
+	db := database.DB
+
+	var post []models.Post
+
+	db.First(&post, ID)
+
+	db.Delete(&post)
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+
+		"Message": "Post deleted sucessfully",
+	})
+
+}

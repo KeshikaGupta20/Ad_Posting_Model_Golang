@@ -20,5 +20,7 @@ func RegisterRoutes(app fiber.Router) {
 
 	app.Get("/getpost", a.GetPost)
 
+	app.Delete("/deletepost", a.DeletePost)
+
 	
 }
